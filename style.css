@@ -1,0 +1,219 @@
+/*
+Theme Name:   MonsieurCycles child theme
+Description:  A child Theme for Monsieur Cycle based on Storefront (Woocommerce)
+Author:       Charles-Louis Allizard
+Author URI:   https://github.com/charleslouis/
+Template:     	storefront
+Description:  	This is a blank child theme for WooThemes StoreFront theme
+Version:      	1.0.0
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  	storefront
+Tags:         	black, white, light, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+Storefront is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+FontAwesome License: SIL Open Font License - http://scripts.sil.org/OFL
+Images License: GNU General Public License v2 or later
+*/
+/*
+ * Add your own custom css below this text.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Bad+Script);
+
+body,
+button,
+input,
+textarea {
+  color: #60646c;
+  font-family: "Droid Serif", "Georgia", serif;
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+select {
+  color: initial;
+  font-family: "Droid Serif", "Georgia", serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bad Script", "Droid Serif", "Georgia", serif;
+  clear: both;
+  font-weight: 700;
+  margin: 0 0 0.618em;
+  color: #60646C; }
+
+.site-header{
+	background-color: #ffffff;
+	color: #1b1b1b;
+}
+
+a{
+	color: #3D9CD2;
+	-webkit-transition: all 0.3s ease-in-out;
+	   -moz-transition: all 0.3s ease-in-out;
+	    -ms-transition: all 0.3s ease-in-out;
+	     -o-transition: all 0.3s ease-in-out;
+	        transition: all 0.3s ease-in-out;
+}
+
+a:focus{
+	outline-color: #3D9CD2;
+}
+
+.main-navigation ul li a, 
+.site-title a, 
+ul.menu li a, 
+.site-branding h1 a {
+	color: #1b1b1b;
+}
+
+.main-navigation ul li a, 
+.site-title a, 
+ul.menu li a, 
+.site-branding h1 a {
+	color: #60646C;
+}
+
+.main-navigation ul li a:hover, 
+.main-navigation ul li:hover > a, 
+.site-title a:hover, 
+a.cart-contents:hover, 
+.site-header-cart .widget_shopping_cart a:hover, 
+.site-header-cart:hover > li > a{
+	color: #383838;
+}
+
+.main-navigation ul.menu > li > ul{
+	border-color: #60646C;
+}
+
+.main-navigation ul.menu ul{
+	background-color: #ffffff;
+}
+
+/*SHoppinh cart*/
+
+.site-header-cart .widget_shopping_cart{
+	background-color: #f4f4f4;
+}
+
+.site-header-cart .cart-contents .amount{
+	font-size: 0.857em;
+}
+
+/*CONTENT*/
+@media (min-width: 768px){
+	.entry-content p{
+		width: 60%;
+		min-width: 500px;
+	}
+}
+
+/*FOOTER*/
+
+
+.site-footer {
+    background-color: #60646C;
+    color: rgba(168, 215, 241, 0.72);
+    word-wrap: break-word;
+}
+
+.site-footer h1, 
+.site-footer h2, 
+.site-footer h3, 
+.site-footer h4, 
+.site-footer h5, 
+.site-footer h6{
+	color: rgba(168, 215, 241, 0.72);	
+}
+
+.site-footer a:not(.button),
+.amount{
+	color: rgba(168, 215, 241, 0.72);
+	font-weight: normal;
+	font-size: 0.8em;
+}
+
+.site-footer a:not(.button):hover{
+	color: rgba(200, 215, 241, 0.9)
+}
+
+.product_list_widget li{
+	padding: 0.8em 0 0;	
+}
+
+@media (min-width: 768px){
+	.footer-widgets.col-4 .block {
+	    width: 30%;
+	    float: left;
+	    margin-right: 3%;
+	}
+}
+
+/*GRID*/
+.productt-lits-title{
+	position: relative;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.productt-lits-title span{
+	background-color: #FFF;
+	position: relative;
+	z-index: 2;
+	padding: 0 1em;
+}
+
+.productt-lits-title:after{
+	display: block;
+	content: " ";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	border: 1px solid #60646C;
+}
+
+.product-details{
+	font-size: 0.8em;
+	list-style-type: none;
+	list-style-position: outside;
+	margin-left: 0;
+	margin-top: 0.5em;
+}
+
+.product{
+    padding: 1em;
+    background-color: rgba(238, 238, 238, 0.10);
+    border: 1px solid #ccc;
+    margin-bottom: 2em;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+       -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+         -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+}
+.product:hover{	
+	-webkit-box-shadow: 3px 3px 3px #ccc;
+	        box-shadow: 3px 3px 3px #ccc;
+}
+
+@media (min-width: 768px){
+	.product{
+		width: 31%;
+		float: left;
+		margin: 0 1% 2em;
+		min-height: 380px;
+	}
+}
