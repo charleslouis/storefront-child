@@ -1,0 +1,25 @@
+
+.main-navigation ul.menu > li > ul{
+	border-color: #60646C;
+}
+
+.main-navigation ul.menu ul{
+	background-color: #ffffff;
+}
+
+
+@media (min-width: 768px){
+	.main-navigation{
+		padding-top: 0;
+	}
+
+
+	.woocommerce-active .site-header .secondary-navigation{
+/*		width: 400px;
+		margin: 0 0 0 100px;*/
+	}
+
+	.main-navigation ul.menu > li > a, .main-navigation ul.nav-menu > li > a{
+		padding: 0 1em 1em;
+	}
+}

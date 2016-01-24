@@ -1,0 +1,50 @@
+.site-branding{
+	height: 90px;
+	width: 90px;
+	overflow: hidden;
+	text-indent: -999px;
+	margin-bottom: 1em;
+	background-image: url('img/logo.jpg');
+	-webkit-background-size: contain;
+	     -o-background-size: contain;
+	        background-size: contain;
+	background-repeat: no-repeat;
+}
+
+/*SHoppinh cart*/
+
+.site-header-cart .widget_shopping_cart{
+	background-color: #f4f4f4;
+}
+
+.site-header-cart .cart-contents .amount{
+	font-size: 0.857em;
+}
+
+
+
+@media (min-width: 768px){
+	.site-header{
+/*		position: fixed;
+		right: 0;
+		left: 0;*/
+		padding-top: 0.25em;
+		margin-bottom: 0;
+	}
+	.home.blog .site-header, .home.page:not(.page-template-template-homepage) .site-header, .home.post-type-archive-product .site-header{
+		margin-bottom: 0;	
+	}
+	
+
+	.woocommerce-active .site-header .site-header-cart{
+		padding-top: 0;
+	}
+
+	.site-search{
+		margin-bottom: 0;
+	}
+
+	.site-header-cart .cart-contents{
+		padding: 0 1em 1em;
+	}
+}

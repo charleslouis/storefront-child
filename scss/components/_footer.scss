@@ -1,0 +1,41 @@
+
+/*FOOTER*/
+
+
+.site-footer {
+    background-color: #60646C;
+    color: rgba(168, 215, 241, 0.72);
+    word-wrap: break-word;
+}
+
+.site-footer h1, 
+.site-footer h2, 
+.site-footer h3, 
+.site-footer h4, 
+.site-footer h5, 
+.site-footer h6{
+	color: rgba(168, 215, 241, 0.72);	
+}
+
+.site-footer a:not(.button),
+.amount{
+	color: rgba(168, 215, 241, 0.72);
+	font-weight: normal;
+	font-size: 0.8em;
+}
+
+.site-footer a:not(.button):hover{
+	color: rgba(200, 215, 241, 0.9)
+}
+
+.product_list_widget li{
+	padding: 0.8em 0 0;	
+}
+
+@media (min-width: 768px){
+	.footer-widgets.col-4 .block {
+	    width: 30%;
+	    float: left;
+	    margin-right: 3%;
+	}
+}
