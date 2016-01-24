@@ -491,11 +491,12 @@ jQuery(document).ready(function(){
 
  	jQuery('.product').click(function(){
  		var postid = jQuery(this).data('postid'),
- 			fieldname = jQuery(this).data('fieldname');
- 			subfield = jQuery(this).data('subfield');
+ 			fieldname = jQuery(this).data('fieldname'),
+ 			subfield = jQuery(this).data('subfield'),
+ 			baseUrl = jQuery(this).data('url');
 
  		console.log(postid);
- 		var url = 'http://localhost/public/monsieurcycles/wp-content/themes/monsieurcycles-2016/templates/popup-occasion.php?id='+ postid + '&fieldname=' + fieldname + '&subfield=' + subfield;
+ 		var url = baseUrl + '/templates/popup-occasion.php?id='+ postid + '&fieldname=' + fieldname + '&subfield=' + subfield;
 		jQuery.ajax({
 				url: url,
 				success: function( data ) {

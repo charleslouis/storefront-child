@@ -22,7 +22,7 @@ get_header(); ?>
 				</section>
 
 				<?php if (get_field('liste_de_velos')): ?>
-					<section>
+					<section class="clearfix">
 					<h1 class="productt-lits-title"><span><?php the_field('titre_de_la_selection') ?></span></h1>
 					
 					<?php $i=0; ?>
@@ -38,7 +38,8 @@ get_header(); ?>
 							class="product"
 							data-postid="<?php echo $id ?>"
 							data-fieldname="<?php echo "liste_de_velos" ?>"
-							data-subfield="<?php echo $i ?>">
+							data-subfield="<?php echo $i ?>"
+							data-url="<?php echo get_stylesheet_directory_uri() ?>">
 							
 							<h1><?php the_sub_field('nom_du_velo') ?></h1>
 							
@@ -69,6 +70,20 @@ get_header(); ?>
 					</section>
 				<?php endif; //get_sub_field ?>
 			
+				<?php if( get_field('services') ): ?>
+					<section class="nos-services clearfix">
+					<?php while( has_sub_field('services') ) :	?>
+						
+						<article class="columns service">
+							<h3><?php the_sub_field('titre_du_service'); ?></h3>
+							<?php the_sub_field('presentation_du_service'); ?>
+						</article>
+					
+					<?php endwhile; ?>
+					</section>
+				<?php endif; ?>
+
+
 				<?php
 				/**
 				 * @hooked storefront_display_comments - 10
