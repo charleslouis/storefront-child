@@ -478,6 +478,31 @@ jQuery(document).ready(function(){
 
     jQuery('.product-thumnail').matchHeight();
     jQuery('.product').matchHeight();
+
     
+
+    jQuery('#product-detail-full').hide();
+    
+    jQuery('#close').click(function(event){
+    	event.preventDefault()
+    	jQuery('#product-detail-full').hide();
+    });
+    
+
+ 	jQuery('.product').click(function(){
+ 		var postid = jQuery(this).data('postid'),
+ 			fieldname = jQuery(this).data('fieldname');
+ 			subfield = jQuery(this).data('subfield');
+
+ 		console.log(postid);
+ 		var url = 'http://localhost/public/monsieurcycles/wp-content/themes/monsieurcycles-2016/templates/popup-occasion.php?id='+ postid + '&fieldname=' + fieldname + '&subfield=' + subfield;
+		jQuery.ajax({
+				url: url,
+				success: function( data ) {
+			    	jQuery('#product-detail-full-content').load(url);
+			    	jQuery('#product-detail-full').fadeIn(800);
+				}
+			})
+    });
 
 });

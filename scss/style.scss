@@ -28,9 +28,11 @@ Images License: GNU General Public License v2 or later
 @import '../bower_components/cssgram/source/scss/1977';
 
 @import 'components/type';
+@import 'components/helpers';
 @import 'components/layout';
 @import 'components/header';
 @import 'components/navigation';
 @import 'components/footer';
 @import 'components/products';
 @import 'components/banner-home';
+@import 'components/product-modal';

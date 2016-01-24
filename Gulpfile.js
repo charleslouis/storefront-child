@@ -18,6 +18,7 @@ var paths = {
       sources: [
         './bower_components/matchHeight/dist/jquery.matchHeight.js',
         './bower_components/FitText.js/jquery.fittext.js',
+        './bower_components/simplemodal.js/Source/simple-modal.js',
         './js/components/is-mobile.js',
         './js/components/scroll-banner.js',
         './js/components/init.js'

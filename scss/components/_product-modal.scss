@@ -1,0 +1,41 @@
+#product-detail-full{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(255,255,255, 0.8);
+	z-index: 1000;
+	-ms-overflow-y: scroll;
+	 overflow-y: scroll; 
+	display: none;
+}
+
+#product-detail-full-content{
+	width: 95%;
+	max-width: 800px;
+	margin: 0 auto;	
+	padding: 2em;
+	padding-top: 5em; 
+	background-color: #FFF;
+	
+	.product-thumnail{
+		border: 1px solid #999; 
+	}
+}
+
+#close{
+	font-family: $font-family-sans;
+	position: absolute;
+	top: 5em;
+	right: 2.5%;
+	background-color: #3D9CD2;
+	color: #FFF;  
+	padding: 0.5em 1em; 
+	cursor: pointer;
+}
+
+.velo-name--modal{
+	font-family: $font-family-fun;
+	color: #3D9CD2; 
+}
