@@ -12,48 +12,104 @@ var sass = require('gulp-sass'),
     uglify = require('gulp-uglify');
     
  
+var paths = {
+  'scripts':{
+    front: {
+      sources: [
+        './bower_components/matchHeight/dist/jquery.matchHeight.js',
+        './bower_components/FitText.js/jquery.fittext.js',
+        './js/components/is-mobile.js',
+        './js/components/scroll-banner.js',
+        './js/components/init.js'
+      ],
+      output: {
+        folder: './js/',
+        mainScriptsFile: 'scripts.js'
+      }
+    }
+  },
+  'style': {
+    all: './scss/**/*.scss',
+    output: './'
+  },
+  'php': {
+    all:[
+      './*.php',
+      './**/*.php'
+    ]
+  }
+};
+
 gulp.task('sass:dev', function () {
-  gulp.src(['./scss/**/*.scss'])
+  gulp.src( paths.style.all )
 	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(sourcemaps.write())
-  .pipe(gulp.dest('./'))
+  .pipe(gulp.dest( paths.style.output ))
   .pipe(sass.sync().on('error', sass.logError))
   .pipe(livereload());
 });
  
 
 gulp.task('sass:build',function () {
-  gulp.src(['./scss/**/*.scss'])
+  gulp.src( paths.style.all )
     .pipe(sass())
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(minifycss())
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest( paths.style.output ));
 });
 
 gulp.task('jsconcat:dev', function() {
-  return gulp.src(['js/vendor/plugins.js', 'js/scripts/main.js'])
-    .pipe(concat('main.min.js'))
-    .pipe(gulp.dest('js/'))
+  gulp.src( paths.scripts.front.sources )
+    .pipe(concat( paths.scripts.front.output.mainScriptsFile ))
+    .pipe(gulp.dest(paths.scripts.front.output.folder))
     .pipe(livereload());
 });
 
 gulp.task('jsconcat:build', function() {
-  return gulp.src('js/main.js')
-    .pipe(concat('main.min.js'))
+  gulp.src( paths.scripts.front.sources )
+    .pipe(concat( paths.scripts.front.output.mainScriptsFile ))
     .pipe(uglify())
-    .pipe(gulp.dest('js/'));
+    .pipe(gulp.dest(paths.scripts.front.output.folder));
 });
 
-gulp.task('sass:watch', function () {
+
+//-----------   WATCHERS   ---------------------//
+
+// gulp watcher for sass
+gulp.task('watch:sass', function () {
   livereload.listen();
-  gulp.watch(['./scss/**/*.scss','./scss/**/**/*.scss'], ['sass:dev']);
-  gulp.watch('js/scripts/*.js', ['jsconcat:dev']);
-  /* Trigger a live reload on any Django template changes */
-  gulp.watch(['*.php', '**/*.php']).on('change', livereload.changed);
+  gulp.watch(paths.style.all, ['sass:dev']);
 });
 
-gulp.task('dev', ['sass:watch'],function () {
+// gulp watcher for php
+gulp.task('watch:php', function () {
+  livereload.listen();
+  gulp.watch(paths.php.all).on('change', livereload.changed);
+});
+
+// gulp watcher for js
+gulp.task('watch:js', function () {
+  livereload.listen();
+  gulp.watch(paths.scripts.front.sources, ['jsconcat:dev']);
+});
+
+// gulp watch sass, php, lint & js
+gulp.task('watch', [
+  'watch:sass',
+  'watch:js',
+  'watch:php'
+]);
+
+// gulp.task('sass:watch', function () {
+//   livereload.listen();
+//   gulp.watch(['./scss/**/*.scss','./scss/**/**/*.scss'], ['sass:dev']);
+//   gulp.watch('js/scripts/*.js', ['jsconcat:dev']);
+//   /* Trigger a live reload on any Django template changes */
+//   gulp.watch(['*.php', '**/*.php']).on('change', livereload.changed);
+// });
+
+gulp.task('dev', ['watch'],function () {
 });
 
 gulp.task('build', ['sass:build', 'jsconcat:build'],function () {

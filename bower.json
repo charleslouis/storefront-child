@@ -1,0 +1,22 @@
+{
+  "name": "monsieurcycles",
+  "description": "Monsieurcycles child theme for storefront",
+  "main": "",
+  "authors": [
+    "Charles-Louis Allizard"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/charleslouis",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "matchHeight": "matchheight#~0.7.0"
+  },
+  "dependencies": {}
+}
