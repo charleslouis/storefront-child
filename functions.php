@@ -23,3 +23,4 @@ function sf_child_theme_dequeue_style() {
 include_once('lib/custom_post_types.php');
 include_once('lib/custom_taxonomies.php');
 include_once('lib/scripts.php');
+include_once('lib/site_branding.php');

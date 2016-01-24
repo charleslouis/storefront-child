@@ -27,7 +27,7 @@ get_header(); ?>
 						?>
 						<article class="product">
 							<h4><?php the_sub_field('nom_du_velo') ?></h4>
-							<img src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
+							<img class="product-thumnail toaster" src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
 							<ul class="product-details">
 								<li><strong>Référence : </strong><?php the_sub_field('reference') ?></li>
 								<li><strong>Marque : </strong><?php the_sub_field('marque_du_velo') ?></li>							

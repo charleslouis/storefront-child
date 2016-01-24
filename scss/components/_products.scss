@@ -31,27 +31,78 @@
 }
 
 .product{
+	position: relative;
     padding: 1em;
     background-color: rgba(238, 238, 238, 0.10);
     border: 1px solid #ccc;
     margin-bottom: 2em;
+    background-color: #FFF;
     cursor: pointer;
-    -webkit-transition: all 0.5s ease-in-out;
-       -moz-transition: all 0.5s ease-in-out;
-        -ms-transition: all 0.5s ease-in-out;
-         -o-transition: all 0.5s ease-in-out;
-            transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+       -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+         -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+    
+    img{
+    	width: 100%;
+		
+        filter: brightness(140%);
+        -webkit-filter: brightness(140%);
+        -moz-filter: brightness(140%);
+        -o-filter: brightness(140%);
+        -ms-filter: brightness(140%);  	
+    }
+
+    h1{
+    	font-family: $font-family-sans; 
+    	font-size: 1.125em;
+		text-align: center;
+		text-transform: uppercase; 	
+    }
 }
 .product:hover{	
 	-webkit-box-shadow: 3px 3px 3px #ccc;
 	        box-shadow: 3px 3px 3px #ccc;
 }
 
+.button-detail--product{
+	position: relative;
+	width: 100% ;
+	font-size: 0.8em;
+	text-align: center;
+	font-family: $font-family-sans; 
+	text-transform: uppercase;
+	// position: absolute;
+	// right: 1em;
+	// left: 1em;
+	// bottom: 1em; 
+}
+
+
 @media (min-width: 768px){
 	.product{
 		width: 31%;
 		float: left;
 		margin: 0 1% 2em;
-		// min-height: 380px;
+		overflow: hidden;	
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transition: .3s ease-in-out;
+		transition: .3s ease-in-out;
+		
+		
+		&:hover {
+			-webkit-transform: scale(1.1);
+			transform: scale(1.1);
+		    z-index: 3;
+		}
+
+		.product-thumnail{
+		    width: auto; 
+		}
+
 	}
 }
+
+/* Zoom In #1 */

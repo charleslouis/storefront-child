@@ -23,8 +23,10 @@ get_header(); ?>
 							$img = $imgArray['sizes']['medium'];
 						?>
 						<article class="product">
-							<h4><?php the_sub_field('nom_du_velo') ?></h4>
-							<img src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
+							<h1><?php the_sub_field('nom_du_velo') ?></h1>
+							<figure class="_1977">								
+								<img class="product-thumnail" src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
+							</figure>
 							<ul class="product-details">
 								<li><strong>Référence : </strong><?php the_sub_field('reference') ?></li>
 								<li><strong>Marque : </strong><?php the_sub_field('marque_du_velo') ?></li>
@@ -39,6 +41,7 @@ get_header(); ?>
 									<li><strong>Monovitesse</strong></li>
 								<?php endif; ?>
 							</ul>
+							<a href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-detail--product">Détails</a>
 						</article>
 					<?php endwhile //!has_sub_field?>
 					</section>

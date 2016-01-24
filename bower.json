@@ -16,7 +16,8 @@
     "tests"
   ],
   "devDependencies": {
-    "matchHeight": "matchheight#~0.7.0"
+    "matchHeight": "matchheight#~0.7.0",
+    "cssgram": "CSSgram#~0.1.4"
   },
   "dependencies": {}
 }
