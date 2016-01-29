@@ -465,22 +465,7 @@ scrollPos = jQuery(this).scrollTop();
 // }
 }
 
-
-jQuery(document).ready(function(){
-
-	if(!isMobile()) {
-		jQuery(window).scroll(function() {	      
-	       scrollBanner();	      
-		});
-	}
-	
-	jQuery("#homeBanner h2").fitText(1.7, { minFontSize: '24px', maxFontSize: '64px' });	
-
-    jQuery('.product-thumnail').matchHeight();
-    jQuery('.product').matchHeight();
-
-    
-
+function popupVeloDetailsAjax(){
     jQuery('#product-detail-full').hide();
     
     jQuery('#close').click(function(event){
@@ -489,7 +474,7 @@ jQuery(document).ready(function(){
     });
     
 
- 	jQuery('.product').click(function(){
+ 	jQuery('.product-occasion').click(function(){
  		var postid = jQuery(this).data('postid'),
  			fieldname = jQuery(this).data('fieldname'),
  			subfield = jQuery(this).data('subfield'),
@@ -501,9 +486,55 @@ jQuery(document).ready(function(){
 				url: url,
 				success: function( data ) {
 			    	jQuery('#product-detail-full-content').load(url);
-			    	jQuery('#product-detail-full').fadeIn(800);
+			    	jQuery('#product-detail-full').fadeIn(200);
 				}
 			})
     });
+}
+// Filter bikes second hand (occasions) by size
+
+function filterBikes() {
+	jQuery('#size-filter li').click(function(){
+		var filter = jQuery(this).data('size-filter');
+			jQuery(this).addClass('active').siblings().removeClass('active');
+			filterHideShowBikes(filter);
+	});
+}
+
+//News filter function
+function filterHideShowBikes(value) {
+	var list = jQuery('#products-list--occasion .product-occasion');
+	
+	jQuery(list).fadeOut('fast');
+
+	if (value == 'Toutes+les+tailles') {
+		jQuery('#products-list--occasion').find('article').each(function (i) {
+			jQuery(this).delay(200).slideDown('fast');
+		});
+	} else {
+		//Notice this *=' <- This means that if the data-category contains multiple options, it will find them
+		//Ex: data-category='Cat1, Cat2'
+		jQuery('#products-list--occasion').find('article[data-size="' + value + '"]').each(function (i) {
+			jQuery(this).delay(200).slideDown('fast');
+		});
+	}
+}
+
+jQuery(document).ready(function(){
+
+	if(!isMobile()) {
+		jQuery(window).scroll(function() {	      
+	       scrollBanner();	      
+		});
+	}
+	
+	jQuery('#homeBanner h2').fitText(1.7, { minFontSize: '24px', maxFontSize: '64px' });	
+
+    jQuery('.product-thumnail').matchHeight();
+    jQuery('.product').matchHeight();
+
+ 	filterBikes();
+
+	popupVeloDetailsAjax();
 
 });

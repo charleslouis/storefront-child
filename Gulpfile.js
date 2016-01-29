@@ -21,6 +21,8 @@ var paths = {
         './bower_components/simplemodal.js/Source/simple-modal.js',
         './js/components/is-mobile.js',
         './js/components/scroll-banner.js',
+        './js/components/popup-ajax.js',
+        './js/components/bikes-filter.js',
         './js/components/init.js'
       ],
       output: {

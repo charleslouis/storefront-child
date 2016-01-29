@@ -24,14 +24,14 @@ Template Name: Ajax
 ?>
 
 <div>
-	<figure class="">								
-		<img class="product-thumnail" src="<?php echo $imgLarge; ?>" alt="">
+	<figure class="_1977">
+		<img class="thumbnail--product-occasion product-thumnail" src="<?php echo $imgLarge; ?>" alt="<?php echo $fields[$subfield]['nom_du_velo'] ?>">
 	</figure>
 	<ul class="product-details unstyled">
 		<li><strong>Référence : </strong><?php echo $fields[$subfield]['reference'] ?></li>
 		<li><strong>Marque : </strong><?php echo $fields[$subfield]['marque_du_velo'] ?></li>
 		<li><strong>Prix : </strong><?php echo $fields[$subfield]['prix_du_velo'] ?>€</li>
-		<li><strong>Taille : </strong><?php echo $fields[$subfield]['taille_du_velo'] ?></li>
+		<li><strong>Dimension du cadre : </strong><?php echo $fields[$subfield]['taille_du_velo'] ?></li>
 
 		<?php if($fields[$subfield]['nombre_de_vitesses'] > 0): ?>
 			<li>

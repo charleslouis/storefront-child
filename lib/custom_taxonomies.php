@@ -1,6 +1,6 @@
 <?php 
 
-add_action( 'init', 'create_taxonomies' );
+// add_action( 'init', 'create_taxonomies' );
 // function create_taxonomies() {
 // 	$labels = array(
 //     	'name' => __( 'Skills' ),

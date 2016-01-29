@@ -27,7 +27,7 @@ get_header(); ?>
 					
 					<?php $i=0; ?>
 					<?php $fields = get_field('liste_de_velos'); ?>
-
+					
 					<?php while (has_sub_field('liste_de_velos')): ?>
 						<?php 
 							$imgArray = get_sub_field('photo_du_velo');
@@ -35,7 +35,7 @@ get_header(); ?>
 							$imgLarge = $imgArray['sizes']['large'];
 						?>
 						<article 
-							class="product"
+							class="product product-occasion"
 							data-postid="<?php echo $id ?>"
 							data-fieldname="<?php echo "liste_de_velos" ?>"
 							data-subfield="<?php echo $i ?>"
@@ -44,14 +44,15 @@ get_header(); ?>
 							<h1><?php the_sub_field('nom_du_velo') ?></h1>
 							
 							<figure class="_1977">								
-								<img class="product-thumnail" src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
+								<img class="thumbnail--product-occasion product-thumnail" src="<?php echo($img); ?>" alt="<?php the_sub_field('nom_du_velo') ?>">
 							</figure>
 
 							<ul class="unstyled product-details">
 								<li><strong>Référence : </strong><?php the_sub_field('reference') ?></li>
 								<li><strong>Marque : </strong><?php the_sub_field('marque_du_velo') ?></li>
 								<li><strong>Prix : </strong><?php the_sub_field('prix_du_velo') ?>€</li>
-								<li><strong>Taille : </strong><?php the_sub_field('taille_du_velo') ?></li>
+								<li><strong>Dimension du cadre : </strong><?php the_sub_field('taille_du_velo') ?></li>
+								<li><strong>Taille du cycliste : </strong><?php the_sub_field('taille_du_cycliste') ?></li>
 							
 								<?php if(get_sub_field('nombre_de_vitesses') > 0): ?>
 									<li>
@@ -70,6 +71,11 @@ get_header(); ?>
 					</section>
 				<?php endif; //get_sub_field ?>
 			
+				<section class="call-to-action--home">
+					<h2><?php the_field('texte_occasions') ?></h2>
+					<a href="<?php the_field('lien_occasions') ?>" class="button"><?php the_field('titre_bouton_occasions') ?></a>
+				</section>
+
 				<?php if( get_field('services') ): ?>
 					<section class="nos-services clearfix">
 					<?php while( has_sub_field('services') ) :	?>
