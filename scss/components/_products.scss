@@ -104,6 +104,12 @@
 		}
 
 	}
+
+	.woocommerce.product-columns-3 ul.products li.product, .woocommerce-page.product-columns-3 ul.products li.product {
+	    width: 30%;
+	    margin-right: 3%; 
+	}
+
 }
 
 /* Zoom In #1 */
