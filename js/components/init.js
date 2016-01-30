@@ -1,4 +1,4 @@
-
+	
 jQuery(document).ready(function(){
 
 	if(!isMobile()) {
@@ -13,7 +13,13 @@ jQuery(document).ready(function(){
     jQuery('.product').matchHeight();
 
  	filterBikes();
+ 	
+ 	initModalWrapper();
+ 	loadModalFromThumbnail();
 
-	popupVeloDetailsAjax();
+	// loadModalFromPrevNext('#previous-bike');
+	// loadModalFromPrevNext('#next-bike');
+
+	// popupVeloDetailsAjax();
 
 });

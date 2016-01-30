@@ -17,6 +17,8 @@ get_header(); ?>
 				<section id="product-detail-full">
 					<a id="close">Fermer</a>
 					<div id="product-detail-full-content"></div>
+					<a href="#" id="previous-bike" class="button">Previous</a>
+					<a href="#" id="next-bike" class="button">Next</a>
 				</section>
 
 				<?php 

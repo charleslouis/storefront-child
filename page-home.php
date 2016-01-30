@@ -17,11 +17,17 @@ get_header(); ?>
 				<section id="product-detail-full">
 					<a id="close">Fermer</a>
 					<div id="product-detail-full-content"></div>
+					<a href="#" id="previous-bike" data-bikeindex="" class="button button-prev-next">Précèdent</a>
+					<a href="#" id="next-bike" data-bikeindex="" class="button button-prev-next">Suivant</a>
 				</section>
 
 				<?php if (get_field('liste_de_velos')): ?>
-					<section class="clearfix">
-					
+					<section class="clearfix" id="products-list--occasion"
+						data-postid="<?php echo $id ?>"
+						data-fieldname="<?php echo "liste_de_velos" ?>"
+						data-subfield="<?php echo $i ?>"
+						data-url="<?php echo get_stylesheet_directory_uri() ?>">
+
 						<h1 class="productt-lits-title"><span><?php the_field('titre_de_la_selection') ?></span></h1>
 						
 						<?php $i=0; ?>
