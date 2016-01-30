@@ -32,6 +32,7 @@ Template Name: Ajax
 		<li><strong>Marque : </strong><?php echo $fields[$subfield]['marque_du_velo'] ?></li>
 		<li><strong>Prix : </strong><?php echo $fields[$subfield]['prix_du_velo'] ?>€</li>
 		<li><strong>Dimension du cadre : </strong><?php echo $fields[$subfield]['taille_du_velo'] ?></li>
+		<li><strong>Taille du cycliste : </strong><?php the_sub_field('taille_du_cycliste') ?></li>
 
 		<?php if($fields[$subfield]['nombre_de_vitesses'] > 0): ?>
 			<li>
