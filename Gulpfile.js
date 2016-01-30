@@ -18,11 +18,12 @@ var paths = {
       sources: [
         './bower_components/matchHeight/dist/jquery.matchHeight.js',
         './bower_components/FitText.js/jquery.fittext.js',
-        './bower_components/simplemodal.js/Source/simple-modal.js',
+        // './js/vendors/jquery.googlemap.js',
         './js/components/is-mobile.js',
         './js/components/scroll-banner.js',
         './js/components/popup-ajax.js',
         './js/components/bikes-filter.js',
+        // './js/components/map.js',
         './js/components/init.js'
       ],
       output: {

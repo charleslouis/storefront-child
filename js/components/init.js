@@ -1,5 +1,4 @@
-	
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
 
 	if(!isMobile()) {
 		jQuery(window).scroll(function() {	      
@@ -17,9 +16,6 @@ jQuery(document).ready(function(){
  	initModalWrapper();
  	loadModalFromThumbnail();
 
-	// loadModalFromPrevNext('#previous-bike');
-	// loadModalFromPrevNext('#next-bike');
-
-	// popupVeloDetailsAjax();
+ 	// initMap('#map', 10);
 
 });

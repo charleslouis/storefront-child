@@ -1,5 +1,5 @@
-On ajoute Google map dans la page contact
-Products 3 colonnes
+-- On ajoute Google map dans la page contact
+-- Products 3 colonnes
 Menu mobile handled
 
 --suppression du bandeau "rechercher"
