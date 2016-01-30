@@ -17,14 +17,18 @@
 
 		&.active{
 			.label{
-				background-color: #FF9B17;
+				// background-color: #FF9B17;
+				border: 3px solid $blue;
+				background-color: $grayLight;
+				color: $blue; 
 			}
 		}
 
 	}
 
 	.label{
-		background-color: #3D9CD2;
+		font-family: $font-family-sans; 
+		background-color: $grayDark;
 		color: #FFF;
 		padding: 0.5em 0.75em;
 		

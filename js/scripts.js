@@ -494,6 +494,8 @@ function popupVeloDetailsAjax(){
 // Filter bikes second hand (occasions) by size
 
 function filterBikes() {
+	jQuery('#size-filter').find('li[data-size-filter="Toutes+les+tailles"]').addClass('active');
+
 	jQuery('#size-filter li').click(function(){
 		var filter = jQuery(this).data('size-filter');
 			jQuery(this).addClass('active').siblings().removeClass('active');
