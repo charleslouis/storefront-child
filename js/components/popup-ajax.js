@@ -13,8 +13,12 @@ function popupVeloDetailsAjax(){
  			subfield = jQuery(this).data('subfield'),
  			baseUrl = jQuery(this).data('url');
 
- 		console.log(postid);
+ 		console.log(subfield);
+
  		var url = baseUrl + '/templates/popup-occasion.php?id='+ postid + '&fieldname=' + fieldname + '&subfield=' + subfield;
+ 		
+ 		console.log(url);
+
 		jQuery.ajax({
 				url: url,
 				success: function( data ) {

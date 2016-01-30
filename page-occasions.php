@@ -44,10 +44,12 @@ get_header(); ?>
 
 						<h1 class="products-list-title"><span><?php the_field('titre_de_la_selection') ?></span></h1>
 						
+						<?php $i=0; ?>
+						
 						<?php while (has_sub_field('liste_de_velos')): ?>
-							<?php $i=0; ?>
-							<?php $fields = get_field('liste_de_velos'); ?>							
-							
+						
+							<?php $fields = get_field('liste_de_velos'); ?>
+														
 							<?php 
 								$imgArray = get_sub_field('photo_du_velo');
 								$img = $imgArray['sizes']['medium'];
@@ -85,7 +87,7 @@ get_header(); ?>
 									<?php endif; ?>
 								</ul>
 							</article>
-							<?php $i++ ?>
+							<?php $i++; ?>
 						<?php endwhile //!has_sub_field?>
 					</section>
 				<?php endif; //get_sub_field ?>		
