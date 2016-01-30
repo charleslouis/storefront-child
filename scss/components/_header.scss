@@ -30,6 +30,22 @@
 		left: 0;*/
 		padding-top: 0.25em;
 		margin-bottom: 0;
+		min-height: 170px; 
+	}
+
+	.site-branding{
+		width: 135px;
+		height: 135px;
+		position: absolute;
+	}
+
+	.woocommerce-active .site-header .main-navigation{
+		text-align: right;
+	}
+
+	.woocommerce-active .site-header .secondary-navigation{
+		float: right;
+		margin-right: 0;
 	}
 	.home.blog .site-header, .home.page:not(.page-template-template-homepage) .site-header, .home.post-type-archive-product .site-header{
 		margin-bottom: 0;	

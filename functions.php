@@ -24,3 +24,9 @@ include_once('lib/custom_post_types.php');
 // include_once('lib/custom_taxonomies.php');
 include_once('lib/scripts.php');
 include_once('lib/site_branding.php');
+
+function storefront_product_search() {
+	return;
+}
+
+// add_action( 'storefront_header', 'storefront_primary_navigation', 70 );
