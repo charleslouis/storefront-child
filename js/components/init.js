@@ -16,6 +16,7 @@ jQuery(document).ready(function($){
  	initModalWrapper();
  	loadModalFromThumbnail();
 
- 	// initMap('#map', 10);
+	sortBikesByPrice('#products-list--occasion', 'article', 'data-price');
+
 
 });

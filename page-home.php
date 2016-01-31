@@ -17,8 +17,8 @@ get_header(); ?>
 				<?php 
 					get_template_part('templates/popup', 'container'); 
 				?>
-
-				<?php if (get_field('liste_de_velos')): ?>
+					
+				<?php if (get_field('reference_page_occasions')): ?>
 					<?php 
 						get_template_part('templates/loop', 'bikes'); 
 					?>

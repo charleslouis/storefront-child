@@ -1,18 +1,18 @@
-.productt-lits-title{
+.products-list-title{
 	position: relative;
 	margin-bottom: 1em;
 	text-transform: uppercase;
 	text-align: center;
 }
 
-.productt-lits-title span{
+.products-list-title span{
 	background-color: #FFF;
 	position: relative;
 	z-index: 2;
 	padding: 0 1em;
 }
 
-.productt-lits-title:after{
+.products-list-title:after{
 	display: block;
 	content: " ";
 	position: absolute;

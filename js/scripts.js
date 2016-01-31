@@ -491,40 +491,29 @@ function initModalWrapper(){
 
 
 function setPreviousBike(subfield, numberOfArticles){
-	var subfieldPrev;
-	console.log(subfield);
-	console.log(subfield === 0);
+	var subfieldPrev;		
 	subfield = parseInt(subfield);
 	if(subfield === 0){
-		subfieldPrev = numberOfArticles-1;
-		console.log('subfield === 0');
+		subfieldPrev = numberOfArticles-1;		
 	} else {
-		subfieldPrev = subfield - 1;
-		console.log('subfield != 0');
+		subfieldPrev = subfield - 1;		
 	}
 	return subfieldPrev;
 }
 
 
 function setNextBike(subfield, numberOfArticles){
+	
 	var subfieldNext;
-
-	console.log(subfield);
-	console.log(subfield === 0);
-	console.log(numberOfArticles);
-
 	subfield = parseInt(subfield);
 	
 	if(subfield === 0){
-		subfieldNext = 1;
-		console.log('subfield === 0');
+		subfieldNext = 1;		
 	}
-	else if (subfield === numberOfArticles-1) {
-		console.log('subfield === numberOfArticles');
+	else if (subfield === numberOfArticles-1) {		
 		subfieldNext = 0;
 	} else {
-		subfieldNext = subfield + 1;
-		console.log('subfield != numberOfArticles');
+		subfieldNext = subfield + 1;		
 	}
 	return subfieldNext;
 }
@@ -536,11 +525,7 @@ function loadModal(subfield){
 	var url = setBaseUrl();
 	url += subfield;
 
-
-	var numberOfArticles = jQuery('.product-occasion').length;
-	
-	// jQuery( document ).ajaxComplete(function() {
-	// });
+	var numberOfArticles = jQuery('#number-of-bikes').data('number-of-bikes');
 
 	jQuery.ajax({
 		url: url,
@@ -602,6 +587,25 @@ function filterHideShowBikes(value) {
 		});
 	}
 }
+function sortBikesByPrice(containerId, children, dataName){
+	var bikes = jQuery(containerId),
+		bikesli = bikes.children(children);
+
+	bikesli.sort(function(a,b){
+		var an = a.getAttribute(dataName),
+			bn = b.getAttribute(dataName);
+
+		if(an > bn) {
+			return 1;
+		}
+		if(an < bn) {
+			return -1;
+		}
+		return 0;
+	});
+
+	bikesli.detach().appendTo(bikes); 
+}
 jQuery(document).ready(function($){
 
 	if(!isMobile()) {
@@ -620,6 +624,7 @@ jQuery(document).ready(function($){
  	initModalWrapper();
  	loadModalFromThumbnail();
 
- 	// initMap('#map', 10);
+	sortBikesByPrice('#products-list--occasion', 'article', 'data-price');
+
 
 });

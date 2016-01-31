@@ -11,16 +11,10 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
-
-<!-- 				<section class="coordonnees">					
-					<?php the_field('coordonnees'); ?>
-				</section>
-				<section class="formulaire">					
-					<?php the_field('formulaire'); ?>
-				</section>				
+				
 				<section class="map">
 					<div id="map" style="width: 380px; height: 300px;"></div>		
-				</section>		 -->	
+				</section>			
 
 				<?php
 				/**

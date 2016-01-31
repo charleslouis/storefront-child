@@ -15,7 +15,6 @@ get_header(); ?>
 				?>
 
 
-
 				<?php 
 					get_template_part('templates/popup', 'container'); 
 				?>
@@ -27,8 +26,7 @@ get_header(); ?>
 
 
 				<?php if (get_field('liste_de_velos')): ?>
-					
-					<h1 class="products-list-title"><span><?php the_field('titre_de_la_selection') ?></span></h1>
+										
 
 					<?php 
 						get_template_part('templates/filter', 'bikes'); 

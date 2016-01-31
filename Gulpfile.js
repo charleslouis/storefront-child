@@ -23,7 +23,7 @@ var paths = {
         './js/components/scroll-banner.js',
         './js/components/popup-ajax.js',
         './js/components/bikes-filter.js',
-        // './js/components/map.js',
+        './js/components/sort-bikes-by-price.js',
         './js/components/init.js'
       ],
       output: {
