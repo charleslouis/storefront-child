@@ -54,11 +54,27 @@ function setNextBike(subfield, numberOfArticles){
 
 function loadModal(subfield){
 
-
 	var url = setBaseUrl();
 	url += subfield;
 
 	var numberOfArticles = jQuery('#number-of-bikes').data('number-of-bikes');
+	var numberOfDisplayedArticles = jQuery('#number-of-bikes').data('number-of-displayed-bikes');
+	var dislayedBikesArray = jQuery('#number-of-bikes').data('displayed-bikes');
+	var dislayedBikesArrayJson = [];
+	// console.log(dislayedBikesArray.length);
+	// var dislayedBikesArrayJson = JSON.parse(dislayedBikesArray);
+	
+	// for (var i = 0; i < dislayedBikesArray.length; i++) {
+	// 	console.log(i);
+	// };
+
+for (var i = dislayedBikesArray.length - 1; i >= 0; i--) {
+	if ( parseInt(dislayedBikesArray[i]) >= 0 ) {
+		console.log(dislayedBikesArray[i]);
+		dislayedBikesArrayJson = parseInt(dislayedBikesArray[i]);
+	};	
+};
+		console.log(dislayedBikesArrayJson);
 
 	jQuery.ajax({
 		url: url,

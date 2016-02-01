@@ -6,6 +6,8 @@
 		$occasion_post_id = $id;
 		$is_page_occasions = true;
 	}
+
+	$displayed_bikes = array();
  ?>
 
 <?php if (get_field('liste_de_velos', $occasion_post_id)): ?>
@@ -17,7 +19,7 @@
 		data-fieldname="<?php echo "liste_de_velos" ?>"
 		data-url="<?php echo get_stylesheet_directory_uri() ?>">
 		
-		<?php $i=0; ?>
+		<?php $i=0; $j=0;?>
 		
 		<?php while (has_sub_field('liste_de_velos', $occasion_post_id)): ?>
 
@@ -53,6 +55,8 @@
 						<li><strong>Prix : </strong><?php the_sub_field('prix_du_velo', $occasion_post_id) ?>€ TTC</li>
 						<li><strong>Dimension du cadre : </strong><?php the_sub_field('taille_du_velo', $occasion_post_id) ?></li>
 						<li><strong>Taille du cycliste : </strong><?php the_sub_field('taille_du_cycliste', $occasion_post_id) ?></li>
+						<li><strong>Taille du cycliste : </strong><?php echo $i ?></li>
+						<li><strong>Taille du cycliste : </strong><?php echo $j ?></li>
 						
 						<?php if(get_sub_field('nombre_de_vitesses', $occasion_post_id) > 0): ?>
 							<li>
@@ -64,10 +68,28 @@
 						<?php endif; ?>
 					</ul>
 				</article>
+			
+				<?php $displayed_bikes[$j] = $i; ?>
+				<?php $j++; ?>
 			<?php endif; ?>
-
+			
 			<?php $i++; ?>
 		<?php endwhile //!has_sub_field?>
-		<i id="number-of-bikes" data-number-of-bikes="<?php echo $i ?>"></i>
+
+		<?php 
+				// $displayed_bikes_string = '[';
+				foreach ($displayed_bikes as $key => $value) {
+					if($key > 0):  
+						$displayed_bikes_string .= ",";
+					endif;
+					$displayed_bikes_string .= $value;
+				}
+				// $displayed_bikes_string .= ']';
+		?>
+		<i id="number-of-bikes" 
+			data-number-of-bikes="<?php echo $i ?>" 
+			data-number-of-displayed-bikes="<?php echo $j ?>" 
+			data-displayed-bikes="<?php echo $displayed_bikes_string; ?>">
+		</i>
 	</section>
 <?php endif; ?>
