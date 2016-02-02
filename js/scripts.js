@@ -485,6 +485,18 @@ function initModalWrapper(){
     	jQuery('#product-detail-full').hide();
     });
 
+	jQuery(document).keydown(function(e) {
+	    if (e.keyCode == 27) {
+	        jQuery('#product-detail-full').hide();
+	    }
+		if (e.keyCode == 39) {
+	        jQuery('#next-bike').trigger('click');
+	    }
+		if (e.keyCode == 37) {
+	        jQuery('#previous-bike').trigger('click');
+	    }
+	});
+
 	loadModalFromPrevNext('#previous-bike');
 	loadModalFromPrevNext('#next-bike');
 }
