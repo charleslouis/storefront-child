@@ -519,10 +519,10 @@ function setNextBike(subfield, numberOfArticles){
 }
 
 
-function loadModal(subfield){
+function loadModal(subfieldIndex){
 
 	var url = setBaseUrl();
-	url += subfield;
+	url += subfieldIndex;
 
 	var numberOfArticles = jQuery('#number-of-bikes').data('number-of-bikes');
 	var numberOfDisplayedArticles = jQuery('#number-of-bikes').data('number-of-displayed-bikes');
@@ -531,7 +531,6 @@ function loadModal(subfield){
 
 	for (var i = dislayedBikesArray.length - 1; i >= 0; i--) {
 		if ( parseInt(dislayedBikesArray[i]) >= 0 ) {
-			// console.log(dislayedBikesArray[i]);
 			dislayedBikesArrayJson.push(parseInt(dislayedBikesArray[i]));
 		};	
 	};
@@ -544,25 +543,28 @@ function loadModal(subfield){
 		}
 	});
 
-	var subfieldPrev = setPreviousBike(subfield, numberOfArticles);
-	var subfieldNext = setNextBike(subfield, numberOfArticles);
+	// var subfieldPrev = setPreviousBike(subfieldIndex, numberOfArticles);
+	// var subfieldNext = setNextBike(subfieldIndex, numberOfArticles);
 
-    jQuery('#previous-bike').attr('data-bikeindex', subfieldPrev );
-    jQuery('#next-bike').attr('data-bikeindex', subfieldNext);
+ //    jQuery('#previous-bike').attr('data-bikeindex', subfieldPrev );
+ //    jQuery('#next-bike').attr('data-bikeindex', subfieldNext);
+
 }
 
 function loadModalFromThumbnail(){
  	jQuery('.product-occasion').click(function(){
- 		var subfield = jQuery(this).data('subfield');
- 		loadModal(subfield);
+ 		var subfieldIndex = jQuery(this).data('subfield');
+ 		loadModal(subfieldIndex);
+ 		setUpPrevNextIndexes('#products-list--occasion', '.product-occasion', subfieldIndex);
  	});
 }
 
 function loadModalFromPrevNext(buttonId){
 	jQuery(buttonId).live('click', function(event){
 		event.preventDefault();
-		var subfield = jQuery(this).attr('data-bikeindex');
-		loadModal(subfield);
+		var subfieldIndex = jQuery(this).attr('data-bikeindex');
+		loadModal(subfieldIndex);
+		setUpPrevNextIndexes('#products-list--occasion', '.product-occasion', subfieldIndex);
 	});	
 }
 
@@ -580,17 +582,24 @@ function createChildrenMap(parent, children){
 		
 		jQuery('#number-of-bikes').attr('data-number-of-displayed-bikes', dislayedBikesArrayJson.length);
 		jQuery('#number-of-bikes').attr('data-displayed-bikes', dislayedBikesArrayJson);
-		
-		
-		// console.log(dislayedBikesArrayJson);
-		// console.log(jQuery('#number-of-bikes').attr('data-number-of-displayed-bikes'));
-		// console.log(jQuery('#number-of-bikes').attr('data-displayed-bikes'));
 
 	}, 500);
 }
 
 
-function setUpPrevNextIndexes(parent, children){
+function getCurrentBikeInModal(subfieldIndex){
+	var currentBikeElem = jQuery('.product-occasion').filter(function(){
+		return jQuery(this).attr('data-subfield') == subfieldIndex
+    });
+
+    return currentBikeElem;
+}
+
+
+function setUpPrevNextIndexes(parent, children, subfieldIndex){
+
+	var currentBikeElem = getCurrentBikeInModal(subfieldIndex);
+
 
 	var firstBikeElem = jQuery(children).first();
 	var firstBikeElemSubfieldIndex = firstBikeElem.attr('data-subfield');
@@ -598,19 +607,17 @@ function setUpPrevNextIndexes(parent, children){
 	var lastBikeElem = jQuery(children).last();
 	var lastBikeElemSubfieldIndex = lastBikeElem.attr('data-subfield');		
 
-	var previousBikeElem = jQuery(this)[0].previousElementSibling;
+	var previousBikeElem = currentBikeElem[0].previousElementSibling;
 	var previousBikeSubfieldIndex = jQuery(previousBikeElem).attr('data-subfield') || lastBikeElemSubfieldIndex;
 	
-	var nextBikeElem = jQuery(this)[0].nextElementSibling;
+	var nextBikeElem = currentBikeElem[0].nextElementSibling;
 	var nextBikeSubfieldIndex = jQuery(nextBikeElem).attr('data-subfield') || firstBikeElemSubfieldIndex;
 	
     jQuery('#previous-bike').attr('data-bikeindex', previousBikeSubfieldIndex );
-    jQuery('#next-bike').attr('data-bikeindex', nextBikeSubfieldIndex);		
-
+    jQuery('#next-bike').attr('data-bikeindex', nextBikeSubfieldIndex);
 }
 
-// TODO
-// Find current bike modal whereas we click on the bike or on the prev/next button
+
 // Filter bikes second hand (occasions) by size
 
 function filterBikes() {
@@ -682,6 +689,5 @@ jQuery(document).ready(function($){
 	sortBikesByPrice('#products-list--occasion', 'article', 'data-price');
 
 	createChildrenMap('#products-list--occasion', 'article');
-	setUpPrevNextIndexes('#products-list--occasion', '.product-occasion');
 
 });
