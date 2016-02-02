@@ -5,8 +5,9 @@ function filterBikes() {
 
 	jQuery('#size-filter li').click(function(){
 		var filter = jQuery(this).data('size-filter');
-			jQuery(this).addClass('active').siblings().removeClass('active');
-			filterHideShowBikes(filter);
+		jQuery(this).addClass('active').siblings().removeClass('active');
+		filterHideShowBikes(filter, createChildrenMap('#products-list--occasion', 'article'));	
+
 	});
 }
 

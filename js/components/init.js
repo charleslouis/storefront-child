@@ -18,5 +18,7 @@ jQuery(document).ready(function($){
 
 	sortBikesByPrice('#products-list--occasion', 'article', 'data-price');
 
+	createChildrenMap('#products-list--occasion', 'article');
+	setUpPrevNextIndexes('#products-list--occasion', '.product-occasion');
 
 });
