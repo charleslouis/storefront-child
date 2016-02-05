@@ -24,9 +24,47 @@ include_once('lib/custom_post_types.php');
 // include_once('lib/custom_taxonomies.php');
 include_once('lib/scripts.php');
 include_once('lib/site_branding.php');
+include_once('lib/nin.php');
 
 function storefront_product_search() {
 	return;
 }
 
 // add_action( 'storefront_header', 'storefront_primary_navigation', 70 );
+// 
+if ( ! function_exists( 'storefront_primary_navigation' ) ) {
+	/**
+	 * Display Primary Navigation
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function storefront_primary_navigation() {
+		?>
+		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
+		<button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"><?php echo esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Navigation', 'storefront' ) ) ); ?></button>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location'	=> 'primary',
+					'container_class'	=> 'primary-navigation',
+					)
+			);
+
+			wp_nav_menu(
+				array(
+					'theme_location'	=> 'primary',
+					'container_class'	=> 'handheld-navigation',
+					)
+			);
+
+			wp_nav_menu(
+				array(
+					'theme_location'	=> 'secondary',
+					'container_class'	=> 'handheld-navigation',
+					)
+			);			
+			?>
+		</nav><!-- #site-navigation -->
+		<?php
+	}
+}

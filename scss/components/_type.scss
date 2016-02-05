@@ -43,7 +43,8 @@ a{
 }
 
 a:focus{
-	outline-color: #3D9CD2;
+	outline: none;
+	color: #383838;
 }
 
 .main-navigation ul li a, 

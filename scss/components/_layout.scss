@@ -1,6 +1,11 @@
+.site-content{
+	position: relative;
+	z-index: 3;	
+}
+
 /*CONTENT*/
 @media (min-width: 768px){
-	.entry-content p{
+	.site-main--text .entry-content p{
 		width: 60%;
 		min-width: 500px;
 	}

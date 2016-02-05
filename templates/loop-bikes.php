@@ -55,8 +55,6 @@
 						<li><strong>Prix : </strong><?php the_sub_field('prix_du_velo', $occasion_post_id) ?>€ TTC</li>
 						<li><strong>Dimension du cadre : </strong><?php the_sub_field('taille_du_velo', $occasion_post_id) ?></li>
 						<li><strong>Taille du cycliste : </strong><?php the_sub_field('taille_du_cycliste', $occasion_post_id) ?></li>
-						<li><strong>Taille du cycliste : </strong><?php echo $i ?></li>
-						<li><strong>Taille du cycliste : </strong><?php echo $j ?></li>
 						
 						<?php if(get_sub_field('nombre_de_vitesses', $occasion_post_id) > 0): ?>
 							<li>
@@ -67,6 +65,7 @@
 							<li><strong>Monovitesse</strong></li>
 						<?php endif; ?>
 					</ul>
+					<a href="#" class="button button-detail--product">Details</a>
 				</article>
 			
 				<?php $displayed_bikes[$j] = $i; ?>

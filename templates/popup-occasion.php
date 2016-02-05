@@ -52,10 +52,10 @@ Template Name: Ajax
 			<h4>Contactez-nous en passant par <a href="<?php echo bloginfo('url') ?>/contact">ici</a></h4>
 		</li>		
 		<li>
-			<h4>Ou ecrivez-nous un mail à contact@</h4>
+			<h4>Ou ecrivez-nous un mail à <?php the_field('email') ?></h4>
 		</li>
 		<li>
-			<h4>Vous pouvez également nous téléphonez-nous au 06 </h4>
+			<h4>Vous pouvez également nous téléphonez-nous au <?php the_field('phone') ?> </h4>
 		</li>		
 		<li>
 			<h4>Ou nous rendre visite à notre <a href="<?php echo bloginfo('url') ?>/show-room">Show Room</a></h4>
