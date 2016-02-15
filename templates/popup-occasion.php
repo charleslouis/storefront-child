@@ -3,9 +3,7 @@
 Template Name: Ajax
 */
 ?>
-
 <?php
-
 	define('WP_USE_THEMES', false);
 	require_once('../../../../wp-load.php');
 
@@ -20,9 +18,7 @@ Template Name: Ajax
 	$imgArray = $fields[$subfield]['photo_du_velo'];
 	$img = $imgArray['sizes']['medium'];
 	$imgLarge = $imgArray['sizes']['large'];	
-
 ?>
-
 <div>
 	<figure class="_1977">
 		<img class="thumbnail--product-occasion product-thumnail" src="<?php echo $imgLarge; ?>" alt="<?php echo $fields[$subfield]['nom_du_velo'] ?>">
@@ -43,7 +39,6 @@ Template Name: Ajax
 			<li><strong>Monovitesse</strong></li>
 		<?php endif; ?>
 	</ul>
-	
 	<h1>Le <span class="velo-name--modal"><?php echo $fields[$subfield]['nom_du_velo'] ?></span> vous intérresse ?</h1>
 	<h2>Voici comment procéder :</h2>
 	<ul>
@@ -52,19 +47,13 @@ Template Name: Ajax
 			<h4>Contactez-nous en passant par <a href="<?php echo bloginfo('url') ?>/contact">ici</a></h4>
 		</li>		
 		<li>
-			<h4>Ou ecrivez-nous un mail à <?php the_field('email') ?></h4>
+			<h4>Ou ecrivez-nous un mail à <a href="mailto:<?php the_field('mail', $id) ?>"><?php the_field('mail', $id) ?></a></h4>
 		</li>
 		<li>
-			<h4>Vous pouvez également nous téléphonez-nous au <?php the_field('phone') ?> </h4>
+			<h4>Vous pouvez également nous téléphonez-nous au <?php the_field('phone', $id) ?> </h4>
 		</li>		
 		<li>
 			<h4>Ou nous rendre visite à notre <a href="<?php echo bloginfo('url') ?>/show-room">Show Room</a></h4>
 		</li>				
 	</ul>
-
-</div>
-
-
-<div>
-	<p><?php  ?></p>
 </div>
