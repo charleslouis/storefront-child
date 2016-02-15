@@ -98,7 +98,9 @@ function loadModal(subfieldIndex){
 
 function loadModalFromThumbnail(){
  	jQuery('.product-occasion').click(function(){
+ 		setCurrentBikeClass(this);
  		var subfieldIndex = jQuery(this).data('subfield');
+ 		// var subfieldIndexKey = jQuery(this).data('subfields-array-key');
  		loadModal(subfieldIndex);
  		setUpPrevNextIndexes('#products-list--occasion', '.product-occasion', subfieldIndex);
  	});
@@ -108,6 +110,9 @@ function loadModalFromPrevNext(buttonId){
 	jQuery(buttonId).live('click', function(event){
 		event.preventDefault();
 		var subfieldIndex = jQuery(this).attr('data-bikeindex');
+		
+		findCurrentBikeElemFromButtons('#products-list--occasion', '.product-occasion', subfieldIndex)
+		
 		loadModal(subfieldIndex);
 		setUpPrevNextIndexes('#products-list--occasion', '.product-occasion', subfieldIndex);
 	});	
@@ -119,9 +124,12 @@ function createChildrenMap(parent, children){
 	var dislayedBikesArrayJson = [];
 
 	setTimeout(function(){
+		var i = 0;
 		childrenList.each(function(){
 			if (jQuery(this).is(":visible")) {
 				dislayedBikesArrayJson.push(jQuery(this).data('subfield'));
+				jQuery(this).attr('data-subfields-array-key', i);			
+				i++;
 			}
 		});
 		
@@ -146,19 +154,48 @@ function setUpPrevNextIndexes(parent, children, subfieldIndex){
 	var currentBikeElem = getCurrentBikeInModal(subfieldIndex);
 
 
-	var firstBikeElem = jQuery(children).first();
+	// var firstBikeElem = jQuery(children).first();
+	var firstBikeElem = jQuery(children).prevAll("article:visible").first();
 	var firstBikeElemSubfieldIndex = firstBikeElem.attr('data-subfield');
 
-	var lastBikeElem = jQuery(children).last();
+	// var lastBikeElem = jQuery(children).last();
+	var lastBikeElem = jQuery(children).prevAll("article:visible").last();
 	var lastBikeElemSubfieldIndex = lastBikeElem.attr('data-subfield');		
 
-	var previousBikeElem = currentBikeElem[0].previousElementSibling;
+	// var previousBikeElem = currentBikeElem[0].previousElementSibling;
+	// var previousBikeSubfieldIndex = jQuery(previousBikeElem).attr('data-subfield') || lastBikeElemSubfieldIndex;
+
+	// var previousBikeElem = currentBikeElem[0].previousElementSibling;
+	var previousBikeElem = jQuery("#products-list--occasion").find(".current-bike").prevAll("article:visible").first();
 	var previousBikeSubfieldIndex = jQuery(previousBikeElem).attr('data-subfield') || lastBikeElemSubfieldIndex;
-	
-	var nextBikeElem = currentBikeElem[0].nextElementSibling;
+
+	// var nextBikeElem = currentBikeElem[0].nextElementSibling;
+	// var nextBikeSubfieldIndex = jQuery(nextBikeElem).attr('data-subfield') || firstBikeElemSubfieldIndex;
+
+	var nextBikeElem = jQuery("#products-list--occasion").find(".current-bike").nextAll("article:visible").first();
+
 	var nextBikeSubfieldIndex = jQuery(nextBikeElem).attr('data-subfield') || firstBikeElemSubfieldIndex;
-	
+
     jQuery('#previous-bike').attr('data-bikeindex', previousBikeSubfieldIndex );
     jQuery('#next-bike').attr('data-bikeindex', nextBikeSubfieldIndex);
+}
+
+
+
+function setCurrentBikeClass(clickedBike){
+	jQuery(clickedBike).addClass('current-bike');
+	jQuery(clickedBike).siblings().removeClass('current-bike');
+}
+
+
+function findCurrentBikeElemFromButtons(parent, children, subfieldIndex){
+	var childrenList = jQuery(parent).find(children);
+	
+	childrenList.each(function(){
+		if (jQuery(this).attr('data-subfield') === subfieldIndex) {
+			setCurrentBikeClass(this);
+		}
+	});
+
 }
 

@@ -54,6 +54,12 @@
 		text-align: center;
 		text-transform: uppercase; 	
     }
+	
+	&.current-bike{
+		background: rgba($blue, 0.10);
+	}
+
+
 }
 .product-occasion:hover{	
 	-webkit-box-shadow: 3px 3px 3px #ccc;
